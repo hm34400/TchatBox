@@ -33,8 +33,9 @@ div{
 }
 #right>div{
     width: 100%;
-
+height:100%;
 }
+
 #top{
 
 }
@@ -43,41 +44,43 @@ div{
 }
 
 #users{
-    margin: 20px;
+    /*margin: 20px;*/
     background-color: #2e3136;
     /*box-shadow: 2px 2px 5px rgba(0,0,0,0.5);*/
 
 }
 
 #users > p{
-    color: white;
+    color: rgba(255,255,255,0.8);
     padding: 10px;
+}
+
+#users > p:hover{
+    color: rgba(255,255,255,1);
     background-color:rgba(0,0,0,0.1);
+
 }
 #messages > p{
     padding: 10px;
-
-    background-color:rgba(0,0,0,0.1);
-}
-
-.c1{
-    background-color:rgba(140,150,250,0.5);
-}
-.c2{
-    background-color:rgba(140,50,50,0.5);
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+    /*background-color:rgba(0,0,0,0.1);*/
 }
 
 #messages{
-    margin: 20px;
+    height:100%;
     background-color: white;
     overflow-y: scroll;
     /*box-shadow: 2px 2px 5px rgba(0,0,0,0.5);*/
 
 }
+#messages >p:hover{
+    background-color:rgba(0,0,0,0.1);
+
+}
 #message{
     line-height: 60px;
     vertical-align: middle;
-    margin: 20px;
+    /*margin: 20px;*/
     background-color: white;
 
 }
@@ -151,4 +154,9 @@ div{
 
 .afkBack{
     color: rgba(0,0,0,0.5);
+}
+
+#typing{
+    color: white;
+    transition:1s;
 }

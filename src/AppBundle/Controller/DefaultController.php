@@ -66,26 +66,64 @@ class DefaultController extends Controller {
 
         $em = $this->getDoctrine()->getManager();
         $user = $this->getUser();
-
+        //Recuperation de l'user courant
         $usr = $em->find(Utilisateur::class, $user);
+        //Set le boolean a true pour le statut AFK
         $usr->setAfk(1);
-       
+        //sauvegarde les changements de la propriété afk
         $em->merge($usr);
         $em->flush();
         return new Response("ok");
     }
+
     /**
      * @Route("/noafk", name="noafk")
      * @param Request $r
      */
     public function makeNoAfk(Request $r) {
 
-        
+
         $em = $this->getDoctrine()->getManager();
         $user = $this->getUser();
+        //Recuperation de l'user courant
         $usr = $em->find(Utilisateur::class, $user);
+        //Set le boolean a true pour ne pas/plus être afk
         $usr->setAfk(0);
-       
+        //sauvegarde les changements de la propriété afk
+        $em->merge($usr);
+        $em->flush();
+        return new Response("ok");
+    }
+
+    /**
+     * @Route("/typing", name="typing")
+     * @param Request $r
+     */
+    public function isTyping(Request $r) {
+
+        $em = $this->getDoctrine()->getManager();
+        $user = $this->getUser();
+
+        $usr = $em->find(Utilisateur::class, $user);
+        $usr->setTyping(1);
+
+        $em->merge($usr);
+        $em->flush();
+        return new Response("ok");
+    }
+
+    /**
+     * @Route("/notyping", name="notyping")
+     * @param Request $r
+     */
+    public function isNoTyping(Request $r) {
+
+        $em = $this->getDoctrine()->getManager();
+        $user = $this->getUser();
+
+        $usr = $em->find(Utilisateur::class, $user);
+        $usr->setTyping(0);
+
         $em->merge($usr);
         $em->flush();
         return new Response("ok");

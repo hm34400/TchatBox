@@ -192,7 +192,8 @@ class Utilisateur implements UserInterface, Serializable, JsonSerializable {
     public function jsonSerialize() {
         return array(
             'email' => $this->email,
-            'afk' => $this->afk
+            'afk' => $this->afk,
+            'typing' => $this->typing
         );
     }
 
